@@ -1,0 +1,49 @@
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-6 col-sm-3">
+          <form id="add-org-form" action='/' method='post' class="form-group" role="form">
+            <h2 class="form-heading">New organization</h2>
+            
+            <input data-id="organization" type="text" name="title" class="form-control" placeholder="Organization" maxlength="64" required autofocus>
+
+            <input data-id="net" type="text" name="nets" class="form-control" placeholder="Net" maxlength="64" required >
+
+            <button data-id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
+
+            <button data-id="cancel" class="btn btn-lg btn-block" type="reset">Cancel</button>
+          </form>
+        </div>
+
+        <div class="col-xs-12 col-sm-9">
+          <table id="orgs-table" class="table">
+            <thead>
+              <tr class="info">
+                <th>Organization</th>
+                <th>Nets</th>
+                <th>Last modify</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {{#each organizations}}
+              <tr data-id="row">
+                <td data-id="title">{{ title }}</td>
+                <td data-id="nets">{{ nets }}</td>
+                <td data-id="modified">{{ modified }}</td>
+                <td>
+                  <div class="pull-right">
+                    <button type="button" data-id="edit-org" class="btn btn-xs btn-warning">Edit</button> 
+                
+                    <button type="button" data-id="remove-org" class="btn btn-xs btn-danger">Remove</button>
+                  </div>
+                </td>
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>

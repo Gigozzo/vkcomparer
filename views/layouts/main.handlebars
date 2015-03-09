@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+      <script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	<div class="wrapper">
+    	{{{body}}}
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--script src="//code.jquery.com/jquery.js"></script-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--script src="bootstrap/js/bootstrap.min.js"></script-->
+
+        <!-- Latest jQuery -->
+    <!--src="http://code.jquery.com/jquery-2.1.0.min.js"-->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    
+    <!--src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"-->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Templates -->
+    <script src="js/jquery.tmpl.js"></script>
+    
+    <!-- Validation -->
+    <script src="js/bootstrap.validator.js"></script>
+    
+    <!-- Application Пока не активен-->
+    <!--script src="script.js"></script-->
+
+    <!-- Шаблон строки таблицы -->
+    <script type="text/html" id="tableRow">
+
+    <script type="text/html" id="tableRow">
+      <tr data-id="row">
+        <td data-id="title">${title}</td>
+        <td data-id="nets">${nets}</td>
+        <td>
+          <div class="pull-right">
+            <button type="button" data-id="edit-book" class="btn btn-xs btn-warning">Edit</button> 
+            <button type="button" data-id="remove-book" class="btn btn-xs btn-danger">Remove</button>
+          </div>
+        </td>
+      </tr>
+    </script>
+  </body>
+</html>
