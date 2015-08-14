@@ -15,31 +15,6 @@ db.once('open', function callback () {
 
 var Schema = mongoose.Schema;
 
-// Article
-
-var Images = new Schema({
-	kind: {
-		type: String,
-		enum: ['thumbnail', 'detail'],
-		required: true
-	},
-	url: { type: String, required: true }
-});
-
-var Article = new Schema({
-	title: { type: String, required: true },
-	author: { type: String, required: true },
-	description: { type: String, required: true },
-	images: [Images],
-	modified: { type: Date, default: Date.now }
-});
-
-Article.path('title').validate(function (v) {
-	return v.length > 5 && v.length < 70;
-});
-
-var ArticleModel = mongoose.model('Article', Article);
-
 // Groups list
 
 var Member = new Schema({
@@ -55,23 +30,6 @@ var Group = new Schema({
 });
 
 var GroupModel = mongoose.model('Group', Group);
-
-// Organization
-
-var Nets = new Schema({
-	address: { type: String, required: true }
-});
-
-var Organization = new Schema({
-	title: { type: String, required: true },
-	author: { type: String },
-	description: { type: String },
-	nets: { type: String },
-	modified: { type: Date, default: Date.now }
-});
-
-var OrganizationModel = mongoose.model('Organization', Organization);
-
 
 // User
 
@@ -190,11 +148,10 @@ var RefreshToken = new Schema({
 
 var RefreshTokenModel = mongoose.model('RefreshToken', RefreshToken);
 
-module.exports.mongoose = mongoose;
 module.exports.GroupModel = GroupModel;
-module.exports.ArticleModel = ArticleModel;
-module.exports.UserModel = UserModel;
-module.exports.ClientModel = ClientModel;
-module.exports.AccessTokenModel = AccessTokenModel;
+
+module.exports.mongoose			 = mongoose;
+module.exports.UserModel		 = UserModel;
+module.exports.ClientModel		 = ClientModel;
+module.exports.AccessTokenModel	 = AccessTokenModel;
 module.exports.RefreshTokenModel = RefreshTokenModel;
-module.exports.OrganizationModel = OrganizationModel;

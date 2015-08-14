@@ -5,7 +5,6 @@ var passport	= require('passport');
 var config		= require('./libs/config');
 var log			= require('./libs/log')(module);
 var oauth2		= require('./libs/oauth2');
-var ArticleModel= require('./libs/mongoose').ArticleModel;
 var expressHbs	= require('express3-handlebars');
 var request		= require('request');
 var app = express();
