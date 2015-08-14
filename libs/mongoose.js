@@ -18,11 +18,11 @@ var Schema = mongoose.Schema;
 // Groups list
 
 var Member = new Schema({
-	id: {type: String, required: true}
+	id: {type: Number, required: true}
 });
 
 var Group = new Schema({
-	id:			 { type: String, required: true },
+	id:			 { type: Number, required: true },
 	url:		 { type: String, required: true },
 	description: { type: String, required: false },
 	members:	 [Member],

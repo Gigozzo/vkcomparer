@@ -7,6 +7,7 @@ var log			= require('./libs/log')(module);
 var oauth2		= require('./libs/oauth2');
 var expressHbs	= require('express3-handlebars');
 var request		= require('request');
+var VK          = require('vksdk');
 var app = express();
 
 var GroupModel = require('./libs/mongoose').GroupModel;
@@ -45,11 +46,58 @@ app.get('/api', function (req, res) {
 });
 
 // Получить список загруженных групп: {id группы, url группы}
-app.get('/api/groups', function (req, res) {
+app.get('/api/group', function (req, res) {
 	log.info("I want groups");
 	return GroupModel.find(function (err, groups) {
 		if (!err) {
 			return res.send(groups);
+		} else {
+			res.statusCode = 500;
+			log.error('Internal error(%d): %s',res.statusCode,err.message);
+			return res.send({ error: 'Server error' });
+		}
+	});
+});
+
+// Получить инфу о группе
+app.get('/api/group/:id', function (req, res) {
+	log.info("I want group INFO");
+	return GroupModel.findById(req.params.id, function (err, group) {
+		console.log('req.params.id>>> ' + req.params.id);
+		if(!group) {
+			log.info('Группа в БД не обнаружена');
+			var vk = new VK({
+				'appId'     : 4744452,
+				'appSecret' : 'RzpMCpbjiomPF5sKBSh4',
+				'language'  : 'ru'
+			});
+
+			var sum = 0;
+
+			vk.request('groups.getById', {'group_ids' : req.params.id, 'fields': 'members_count'}, function(_o) {
+				log.info('DONE');
+				console.log(_o.response);
+				console.log(_o.response[0].id);
+				console.log(_o.response[0].members_count);
+
+				sum+=0;
+
+				var i = 0;
+				while (i < _o.response[0].members_count) {
+					console.log('i = ' + i);
+
+					vk.request('groups.getMembers', {'group_id' : _o.response[0].id, 'offset': i, count: 1000}, function(_o) {
+						sum+=_o.response.items.length;
+						console.log('(SUM) = ' + sum);
+					});
+
+					i+=1000;
+				};
+			});
+
+		}
+		if (!err) {
+			return res.send({ status: 'OK', article:article });
 		} else {
 			res.statusCode = 500;
 			log.error('Internal error(%d): %s',res.statusCode,err.message);
