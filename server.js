@@ -72,7 +72,7 @@ app.get('/api/group/:id', function (req, res) {
 				'language'  : 'ru'
 			});
 
-			var sum = 0;
+			var sum_count = 0;
 
 			vk.request('groups.getById', {'group_ids' : req.params.id, 'fields': 'members_count'}, function(_o) {
 				log.info('DONE');
@@ -80,15 +80,22 @@ app.get('/api/group/:id', function (req, res) {
 				console.log(_o.response[0].id);
 				console.log(_o.response[0].members_count);
 
-				sum+=0;
+				sum_count+=0;
+				var
+					members = [],
+					key = (_o.response[0].members_count / 1000 | 0) + 1;
 
 				var i = 0;
 				while (i < _o.response[0].members_count) {
 					console.log('i = ' + i);
 
 					vk.request('groups.getMembers', {'group_id' : _o.response[0].id, 'offset': i, count: 1000}, function(_o) {
-						sum+=_o.response.items.length;
-						console.log('(SUM) = ' + sum);
+						sum_count+=_o.response.items.length;
+						members.concat(_o.response.items);
+
+						if (--key === 0) {console.log('<<<<===>DONE_DONE_DONE>>>===');}
+						console.log('(key) = ' + key);
+
 					});
 
 					i+=1000;
