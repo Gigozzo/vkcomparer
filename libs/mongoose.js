@@ -22,11 +22,16 @@ var Member = new Schema({
 });
 
 var Group = new Schema({
-	id:			 { type: Number, required: true },
-	url:		 { type: String, required: true },
-	description: { type: String, required: false },
-	members:	 [Member],
-	modified:	 { type: Date, default: Date.now }
+	id:            { type: Number, required: true, unique:true},
+	screen_name:   { type: String, required: true, unique:true},
+	name:          { type: String, required: false },
+	is_closed:     { type: Number, required: false },
+	url:           { type: String, required: false },
+	description:   { type: String, required: false },
+	members_count: { type: Number, required: false },
+	members:       { type: Array,  required: false },
+	photo_100:     { type: String, required: false },
+	modified:      { type: Date, default: Date.now }
 });
 
 var GroupModel = mongoose.model('Group', Group);
