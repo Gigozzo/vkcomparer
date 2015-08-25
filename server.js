@@ -8,13 +8,14 @@ var oauth2		= require('./libs/oauth2');
 var expressHbs	= require('express3-handlebars');
 var request		= require('request');
 var VK          = require('vksdk');
+var favicon     = require('serve-favicon');
 var app = express();
 
 var GroupModel = require('./libs/mongoose').GroupModel;
 
 var MAIN_TOKEN = '';
 
-app.use(express.favicon());
+app.use(favicon(__dirname + '/public/favicon.ico')); //app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(passport.initialize());
