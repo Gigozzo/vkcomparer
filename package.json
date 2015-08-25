@@ -1,8 +1,8 @@
 {
-    "name": "NodeAPI",
-    "version": "0.1.0",
-    "author": "Evgeny Aleksandrov",
-    "description": "simple example of RESTful API with Node.js",
+    "name": "vkcomparer",
+    "version": "0.0.0",
+    "author": "Grigory Volkov",
+    "description": "vk comparer",
     "private": true,
     "scripts": {
         "start": "node ./server.js"
