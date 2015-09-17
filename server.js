@@ -47,8 +47,8 @@ app.get('/api', function (req, res) {
 });
 
 // Получить список загруженных групп: {id группы, url группы}
-app.get('/api/group', function (req, res) {
-	log.info("I want groups");
+app.get('/api/groups', function (req, res) {
+	log.info("I want groups array");
 	return GroupModel.find(function (err, groups) {
 		if (!err) {
 			return res.send(groups);
@@ -60,8 +60,13 @@ app.get('/api/group', function (req, res) {
 	});
 });
 
+// Получить массив с ИДшниками членов группы
+app.get('/api/groups/:id/members', function (req, res) {
+	res.send('Members IDs here');
+});
+
 // Получить инфу о группе
-app.get('/api/group/:id', function (req, res) {
+app.get('/api/groups/:id', function (req, res) {
 	log.info("I want group INFO about " + req.params.id);
 //	return GroupModel.findById(req.params.id, function (err, group) {
 console.log('Start... ' + req.params.id + ' and type is ' + typeof req.params.id);
