@@ -46,6 +46,16 @@ app.get('/api', function (req, res) {
 	res.send('API is running. Build RESTful!');
 });
 
+app.get('/qwer', function (req, res) {
+//	res.send('Tried wrong way.');
+	res.redirect('/');
+});
+
+app.get('/groups', function (req, res) {
+//	res.send('Tried wrong way.');
+	res.redirect('/groups');
+});
+
 // Получить список загруженных групп: {id группы, url группы}
 app.get('/api/group', function (req, res) {
 	log.info("I want groups");

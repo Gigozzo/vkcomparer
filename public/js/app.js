@@ -11,8 +11,8 @@ var vkcomparerApp = angular.module('vkcomparerApp', [
   'vkcomparerServices'
 ]);
 
-vkcomparerApp.config(['$routeProvider',
-  function($routeProvider) {
+vkcomparerApp.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/groups', {
         templateUrl: 'partials/group-list.html',
@@ -25,4 +25,6 @@ vkcomparerApp.config(['$routeProvider',
       otherwise({
         redirectTo: '/groups'
       });
+
+      $locationProvider.html5Mode(true);
   }]);
