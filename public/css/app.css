@@ -5,7 +5,7 @@ body {
 }
 
 
-.phone-images {
+.group-images {
   background-color: white;
   width: 450px;
   height: 450px;
@@ -14,7 +14,7 @@ body {
   float: left;
 }
 
-.phones {
+.groups {
   list-style: none;
 }
 
@@ -26,14 +26,14 @@ body {
   width: 100px;
 }
 
-.phones li {
+.groups li {
   clear: both;
   height: 115px;
   padding-top: 15px;
 }
 
 /** Detail View **/
-img.phone {
+img.group {
   float: left;
   margin-right: 3em;
   margin-bottom: 2em;
@@ -44,30 +44,30 @@ img.phone {
   display: none;
 }
 
-img.phone:first-child {
+img.group:first-child {
   display: block;
 }
 
 
-ul.phone-thumbs {
+ul.group-thumbs {
   margin: 0;
   list-style: none;
 }
 
-ul.phone-thumbs li {
+ul.group-thumbs li {
   border: 1px solid black;
   display: inline-block;
   margin: 1em;
   background-color: white;
 }
 
-ul.phone-thumbs img {
+ul.group-thumbs img {
   height: 100px;
   width: 100px;
   padding: 1em;
 }
 
-ul.phone-thumbs img:hover {
+ul.group-thumbs img:hover {
   cursor: pointer;
 }
 

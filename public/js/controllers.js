@@ -2,18 +2,18 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', []);
+var vkcomparerControllers = angular.module('vkcomparerControllers', []);
 
-phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
-  function($scope, Phone) {
-    $scope.phones = Phone.query();
+vkcomparerControllers.controller('GroupListCtrl', ['$scope', 'Group',
+  function($scope, Group) {
+    $scope.groups = Group.query();
     $scope.orderProp = 'age';
   }]);
 
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
-  function($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
+vkcomparerControllers.controller('GroupDetailCtrl', ['$scope', '$routeParams', 'Group',
+  function($scope, $routeParams, Group) {
+    $scope.group = Group.get({groupId: $routeParams.groupId}, function(group) {
+      $scope.mainImageUrl = group.images[0];
     });
 
     $scope.setImage = function(imageUrl) {

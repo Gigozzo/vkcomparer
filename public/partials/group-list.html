@@ -14,12 +14,12 @@
     <div class="col-md-10">
       <!--Body content-->
 
-      <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
-            class="thumbnail phone-listing">
-          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
+      <ul class="groups">
+        <li ng-repeat="group in groups | filter:query | orderBy:orderProp"
+            class="thumbnail group-listing">
+          <a href="#/groups/{{group.id}}" class="thumb"><img ng-src="{{group.imageUrl}}"></a>
+          <a href="#/groups/{{group.id}}">{{group.name}}</a>
+          <p>{{group.snippet}}</p>
         </li>
       </ul>
 

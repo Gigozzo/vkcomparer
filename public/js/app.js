@@ -2,27 +2,27 @@
 
 /* App Module */
 
-var phonecatApp = angular.module('phonecatApp', [
+var vkcomparerApp = angular.module('vkcomparerApp', [
   'ngRoute',
-  'phonecatAnimations',
+  'vkcomparerAnimations',
 
-  'phonecatControllers',
-  'phonecatFilters',
-  'phonecatServices'
+  'vkcomparerControllers',
+  'vkcomparerFilters',
+  'vkcomparerServices'
 ]);
 
-phonecatApp.config(['$routeProvider',
+vkcomparerApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/phones', {
-        templateUrl: 'partials/phone-list.html',
-        controller: 'PhoneListCtrl'
+      when('/groups', {
+        templateUrl: 'partials/group-list.html',
+        controller: 'GroupListCtrl'
       }).
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+      when('/groups/:groupId', {
+        templateUrl: 'partials/group-details.html',
+        controller: 'GroupDetailCtrl'
       }).
       otherwise({
-        redirectTo: '/phones'
+        redirectTo: '/groups'
       });
   }]);

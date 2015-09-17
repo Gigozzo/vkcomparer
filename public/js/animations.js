@@ -1,6 +1,6 @@
-var phonecatAnimations = angular.module('phonecatAnimations', ['ngAnimate']);
+var vkcomparerAnimations = angular.module('vkcomparerAnimations', ['ngAnimate']);
 
-phonecatAnimations.animation('.phone', function() {
+vkcomparerAnimations.animation('.group', function() {
 
   var animateUp = function(element, className, done) {
     if(className != 'active') {

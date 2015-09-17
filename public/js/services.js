@@ -2,11 +2,11 @@
 
 /* Services */
 
-var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+var vkcomparerServices = angular.module('vkcomparerServices', ['ngResource']);
 
-phonecatServices.factory('Phone', ['$resource',
+vkcomparerServices.factory('Group', ['$resource',
   function($resource){
-    return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+    return $resource('groups/:groupId.json', {}, {
+      query: {method:'GET', params:{groupId:'groups'}, isArray:true}
     });
   }]);
