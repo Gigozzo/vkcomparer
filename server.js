@@ -49,7 +49,7 @@ app.get('/api', function (req, res) {
 // Получить список загруженных групп: {id группы, url группы}
 app.get('/api/groups', function (req, res) {
 	log.info("I want groups array");
-	return GroupModel.find(function (err, groups) {
+	return GroupModel.find({}, 'id url screen_name members_count name is_closed description', function (err, groups) {
 		if (!err) {
 			return res.send(groups);
 		} else {
