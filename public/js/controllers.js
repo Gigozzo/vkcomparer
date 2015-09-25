@@ -7,7 +7,7 @@ var vkcomparerControllers = angular.module('vkcomparerControllers', []);
 vkcomparerControllers.controller('GroupListCtrl', ['$scope', 'Group',
   function($scope, Group) {
     $scope.groups = Group.query();
-    $scope.orderProp = 'age';
+    $scope.orderProp = 'members_count';
   }]);
 
 vkcomparerControllers.controller('GroupDetailCtrl', ['$scope', '$routeParams', 'Group',

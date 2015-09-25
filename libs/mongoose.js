@@ -31,6 +31,7 @@ var Group = new Schema({
 	members_count: { type: Number, required: false },
 	members:       { type: Array,  required: false },
 	photo_100:     { type: String, required: false },
+	photo_200:     { type: String, required: false },
 	modified:      { type: Date, default: Date.now }
 });
 
